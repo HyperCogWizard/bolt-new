@@ -1,0 +1,52 @@
+graph TD
+    subgraph "Terminal Management Layer"
+        TM[Terminal Manager]
+        TS[Terminal Store]
+        TI[Terminal Instances]
+        TC[Terminal Coordinator]
+    end
+    
+    subgraph "Session Management"
+        SM[Session Manager]
+        SP[Session Pool]
+        SC[Session Cache]
+        SH[Session History]
+    end
+    
+    subgraph "Command Processing"
+        CP[Command Parser]
+        CI[Command Interpreter]
+        CE[Command Executor]
+        CR[Command Router]
+    end
+    
+    subgraph "Output Management"
+        OS[Output Streaming]
+        OF[Output Formatter]
+        OB[Output Buffer]
+        OR[Output Renderer]
+    end
+    
+    TM --> TS
+    TS --> TI
+    TI --> TC
+    
+    TC --> SM
+    SM --> SP
+    SP --> SC
+    SC --> SH
+    
+    SH --> CP
+    CP --> CI
+    CI --> CE
+    CE --> CR
+    
+    CR --> OS
+    OS --> OF
+    OF --> OB
+    OB --> OR
+    
+    style TM fill:#ffeb3b
+    style CP fill:#4caf50
+    style OS fill:#2196f3
+    style SM fill:#ff9800
