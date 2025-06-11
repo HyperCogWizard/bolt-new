@@ -1,0 +1,31 @@
+graph LR
+    WS[WorkbenchStore] --> ES[EditorStore]
+    WS --> FS[FilesStore]
+    WS --> TS[TerminalStore] 
+    WS --> PS[PreviewsStore]
+    
+    ES --> ED[Editor Documents]
+    ES --> SF[Selected File]
+    ES --> SP[Scroll Position]
+    
+    FS --> FM[File Map]
+    FS --> FT[File Tree]
+    FS --> WC[WebContainer API]
+    
+    TS --> TI[Terminal Instance]
+    TS --> TC[Terminal Commands]
+    TS --> TO[Terminal Output]
+    
+    PS --> PV[Preview URLs]
+    PS --> PS2[Preview State]
+    PS --> LS[Live Server]
+    
+    WC --> NS[Node.js Runtime]
+    WC --> PM[Package Manager]
+    WC --> VSF[Virtual File System]
+    
+    style WS fill:#ffeb3b
+    style ES fill:#4caf50
+    style FS fill:#2196f3
+    style TS fill:#ff9800
+    style PS fill:#9c27b0

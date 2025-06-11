@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant App as Application
+    participant WC as WebContainer
+    participant VFS as Virtual File System
+    participant NodeRT as Node.js Runtime
+    participant PM as Package Manager
+    
+    App->>WC: Initialize Container
+    WC->>VFS: Mount Virtual FS
+    VFS-->>WC: FS Ready
+    
+    WC->>NodeRT: Bootstrap Node.js
+    NodeRT->>NodeRT: Initialize V8 Engine
+    NodeRT-->>WC: Runtime Ready
+    
+    WC->>PM: Initialize Package Manager
+    PM->>VFS: Setup node_modules
+    VFS-->>PM: Modules Directory Ready
+    PM-->>WC: Package Manager Ready
+    
+    WC-->>App: Container Initialized
+    
+    Note over WC,NodeRT: Full Node.js environment<br/>running in browser sandbox

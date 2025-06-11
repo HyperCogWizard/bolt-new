@@ -1,0 +1,36 @@
+sequenceDiagram
+    participant User as User
+    participant Chat as Chat Interface
+    participant Parser as Message Parser
+    participant Context as Context Manager
+    participant AI as AI Engine
+    participant Runner as Action Runner
+    participant WC as WebContainer
+    participant UI as UI System
+    
+    User->>Chat: Natural Language Input
+    Chat->>Parser: Raw Message
+    
+    Parser->>Context: Extract Context
+    Context->>Context: Analyze Project State
+    Context->>Context: Build Context Window
+    
+    Parser->>AI: Enhanced Prompt + Context
+    AI->>AI: Neural Processing
+    AI->>Parser: Structured Response
+    
+    Parser->>Parser: Parse Artifacts & Actions
+    Parser->>Runner: Action Queue
+    
+    loop Execute Actions
+        Runner->>WC: Execute Command
+        WC->>WC: Process in Sandbox
+        WC-->>Runner: Result
+        Runner->>UI: Progress Update
+    end
+    
+    Runner->>Chat: Completion Status
+    Chat->>User: Final Response
+    
+    Note over Context,AI: Neural-symbolic integration<br/>transforms intent to executable actions
+    Note over Runner,WC: Symbolic execution in<br/>controlled environment

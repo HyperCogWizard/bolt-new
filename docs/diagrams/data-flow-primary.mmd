@@ -1,0 +1,33 @@
+flowchart TD
+    UI[User Interface] --> EV[Event Capture]
+    EV --> VP[Event Processing]
+    VP --> SS[State Synchronization]
+    SS --> UR[UI Rendering]
+    
+    subgraph "Event Types"
+        KE[Keyboard Events]
+        ME[Mouse Events]
+        FE[File Events]
+        AE[AI Events]
+    end
+    
+    EV --> KE
+    EV --> ME
+    EV --> FE
+    EV --> AE
+    
+    subgraph "State Updates"
+        ES[Editor State]
+        FS[File State]
+        TS[Terminal State]
+        AS[AI State]
+    end
+    
+    VP --> ES
+    VP --> FS
+    VP --> TS
+    VP --> AS
+    
+    style UI fill:#e1f5fe
+    style VP fill:#fff3e0
+    style SS fill:#e8f5e8

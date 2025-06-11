@@ -1,0 +1,42 @@
+graph TD
+    A[User Interface Layer] --> B[Chat Interface]
+    A --> C[Code Editor]
+    A --> D[File Explorer]
+    A --> E[Terminal Interface]
+    
+    B --> F[Message Parser]
+    F --> G[AI Runtime Engine]
+    G --> H[Action Runner]
+    
+    C --> I[CodeMirror Editor]
+    I --> J[Editor Store]
+    
+    D --> K[Files Store]
+    E --> L[Terminal Store]
+    
+    J --> M[Workbench Store]
+    K --> M
+    L --> M
+    
+    H --> N[WebContainer Runtime]
+    N --> O[File System]
+    N --> P[Node.js Environment]
+    N --> Q[Package Manager]
+    
+    M --> R[Preview Store]
+    R --> S[Live Preview]
+    
+    G --> T[AI Models]
+    T --> U[Anthropic Claude]
+    T --> V[Other AI Providers]
+    
+    H --> W[Artifact Generation]
+    W --> X[Code Generation]
+    W --> Y[File Operations]
+    W --> Z[Package Installation]
+    
+    style A fill:#e1f5fe
+    style G fill:#f3e5f5
+    style M fill:#fff3e0
+    style N fill:#e8f5e8
+    style T fill:#fce4ec
